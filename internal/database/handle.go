@@ -29,7 +29,7 @@ func (pg *PostgresDB) GetUserIdByName(name string) (int, error) {
 }
 
 func (pg *PostgresDB) GetUserTasks(userId int) ([]model.Task, error) {
-	rows, err := pg.db.Query("SELECT * FROM junction21.public.tasks WHERE user_id=($1)", userId)
+	rows, err := pg.db.Query("SELECT * FROM tasks WHERE user_id=($1)", userId)
 	if err != nil {
 		return nil, err
 	}
