@@ -67,7 +67,6 @@ func (s *Server) getTasksHandler(writer http.ResponseWriter, request *http.Reque
 		return
 	}
 
-	log.Println(tasks)
 	if err := json.NewEncoder(writer).Encode(tasks); err != nil {
 		http.Error(writer, fmt.Sprintf("serialize error: %s", err.Error()), http.StatusInternalServerError)
 		return
